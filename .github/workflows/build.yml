@@ -26,4 +26,4 @@ jobs:
 
       - run: opam install ledgerwallet ledgerwallet-mavryk ledgerwallet-ssh-agent ledgerwallet-zil --deps-only --with-test
 
-      - run: opam exec -- dune build
+      - run: opam exec -- dune build -p ledgerwallet,ledgerwallet-mavryk,ledgerwallet-ssh-agent,ledgerwallet-zil

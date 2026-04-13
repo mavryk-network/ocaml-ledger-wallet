@@ -24,10 +24,10 @@
  (libraries ledgerwallet))
 
 (library
- (name ledgerwallet_tezos)
- (public_name ledgerwallet-tezos)
- (modules Ledgerwallet_tezos)
- (synopsis "Ledger wallet library for OCaml: Tezos app")
+ (name ledgerwallet_mavryk)
+ (public_name ledgerwallet-mavryk)
+ (modules Ledgerwallet_mavryk)
+ (synopsis "Ledger wallet library for OCaml: Mavryk app")
  (libraries ledgerwallet))
 
 (library

@@ -8,15 +8,15 @@ open Lwt_result.Infix
 open Ledgerwallet
 
 module Version = struct
-  type app_class = Tezos | TezBake
+  type app_class = Mavryk | MavBake
 
   let pp_app_class ppf = function
-    | Tezos -> Format.pp_print_string ppf "Tezos Wallet"
-    | TezBake -> Format.pp_print_string ppf "Tezos Baking"
+    | Mavryk -> Format.pp_print_string ppf "Mavryk Wallet"
+    | MavBake -> Format.pp_print_string ppf "Mavryk Baking"
 
   let class_of_int = function
-    | 0 -> Tezos
-    | 1 -> TezBake
+    | 0 -> Mavryk
+    | 1 -> MavBake
     | _ -> invalid_arg "class_of_int"
 
   type t = {app_class : app_class; major : int; minor : int; patch : int}
@@ -26,11 +26,11 @@ module Version = struct
 
   let create ~app_class ~major ~minor ~patch = {app_class; major; minor; patch}
 
-  type Status.t += Tezos_impossible_to_read_version
+  type Status.t += Mavryk_impossible_to_read_version
 
   let () =
     Status.register_string_f (function
-        | Tezos_impossible_to_read_version -> Some "Impossible to read version"
+        | Mavryk_impossible_to_read_version -> Some "Impossible to read version"
         | _ -> None)
 
   let read cs =
@@ -44,7 +44,7 @@ module Version = struct
       Lwt.return
         (Transport.app_error
            ~msg:"Version.read"
-           (Error Tezos_impossible_to_read_version))
+           (Error Mavryk_impossible_to_read_version))
 end
 
 type ins =
@@ -118,11 +118,11 @@ let curve_of_int = function
   | 0x03 -> Some Bip32_ed25519
   | _ -> None
 
-type Status.t += Tezos_invalid_curve_code of int | Payload_too_big of int
+type Status.t += Mavryk_invalid_curve_code of int | Payload_too_big of int
 
 let () =
   Status.register_string_f (function
-      | Tezos_invalid_curve_code curve_code ->
+      | Mavryk_invalid_curve_code curve_code ->
           Some ("Unrecognized curve code: " ^ string_of_int curve_code)
       | Payload_too_big size ->
           Some (Printf.sprintf "Payload too big: %d bytes" size)
@@ -136,8 +136,8 @@ let () =
              respond that the device rejected it for you."
       | Status.Incorrect_class ->
           Some
-            "A Tezos application wasn't found on the device. Is the Tezos \
-             Wallet or Tezos Baking application open on the device? Is the \
+            "A Mavryk application wasn't found on the device. Is the Mavryk \
+             Wallet or Mavryk Baking application open on the device? Is the \
              device busy talking to another process?"
       | Status.Security_status_unsatisfied ->
           Some
@@ -180,7 +180,7 @@ let get_authorized_path_and_curve ?pp ?buf h =
       Lwt.return
         (Transport.app_error
            ~msg:"get_authorized_path_and_curve"
-           (Error (Tezos_invalid_curve_code curve_code)))
+           (Error (Mavryk_invalid_curve_code curve_code)))
   | Some curve ->
       let path_components = read_path_with_length (Cstruct.shift payload 1) in
       return (path_components, curve)
@@ -215,7 +215,7 @@ let authorize_baking = get_public_key_like Authorize_baking
 let setup_baking ?pp ?buf h ~main_chain_id ~main_hwm ~test_hwm curve path =
   let nb_derivations = List.length path in
   if nb_derivations > 10 then
-    invalid_arg "Ledgerwallet_tezos.setup: max 10 derivations" ;
+    invalid_arg "Ledgerwallet_mavryk.setup: max 10 derivations" ;
   let lc =
     (* [ chain-id | main-hwm | test-hwm | derivations-path ] *)
     (* derivations-path = [ length | paths ] *)

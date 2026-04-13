@@ -9,7 +9,7 @@ env:
 
   matrix:
     - OCAML_VERSION="4.09" PACKAGE="ledgerwallet"
-    - OCAML_VERSION="4.09" PACKAGE="ledgerwallet-tezos"
+    - OCAML_VERSION="4.09" PACKAGE="ledgerwallet-mavryk"
     - OCAML_VERSION="4.09" PACKAGE="ledgerwallet-btc"
     - OCAML_VERSION="4.09" PACKAGE="ledgerwallet-zil"
     - OCAML_VERSION="4.09" PACKAGE="ledgerwallet-ssh-agent"

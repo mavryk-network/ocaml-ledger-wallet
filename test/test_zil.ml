@@ -40,7 +40,7 @@ let test_getpk ~display_addr () =
       | Ok v -> Format.printf "%a %s" Hex.pp (Hex.of_cstruct pk) v)
 
 (* let path = [
- *   hard 44l ; hard 1729l
+ *   hard 44l ; hard 1969l
  * ]
  *
  * let msg = Cstruct.of_string "Voulez-vous coucher avec moi, ce soir ?"

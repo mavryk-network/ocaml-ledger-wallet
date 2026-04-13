@@ -1,5 +1,5 @@
 opam-version: "2.0"
-name: "ledgerwallet-tezos"
+name: "ledgerwallet-mavryk"
 authors: "Vincent Bernardoff <vb@luminar.eu.org>"
 maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
 license: "ISC"
@@ -18,6 +18,6 @@ depends: [
   "secp256k1" # { with-test } # commented because github actions does not install external deps for test only deps
   "alcotest-lwt" { with-test }
 ]
-synopsis: "Ledger wallet library for OCaml: Tezos app"
+synopsis: "Ledger wallet library for OCaml: Mavryk app"
 description:"""
 """

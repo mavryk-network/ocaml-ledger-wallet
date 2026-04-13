@@ -5,10 +5,10 @@
  (libraries alcotest-lwt ledgerwallet-btc))
 
 (test
- (name test_tezos)
- (modules Test_tezos)
- (package ledgerwallet-tezos)
- (libraries alcotest-lwt ledgerwallet-tezos secp256k1 uecc))
+ (name test_mavryk)
+ (modules Test_mavryk)
+ (package ledgerwallet-mavryk)
+ (libraries alcotest-lwt ledgerwallet-mavryk secp256k1 uecc))
 
 (test
  (name test_zil)

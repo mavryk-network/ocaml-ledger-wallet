@@ -1,5 +1,5 @@
 opam-version: "2.0"
-name: "ledgerwallet-ssh-agent"
+name: "ledgerwallet-mavryk"
 authors: ["Vincent Bernardoff <vb@luminar.eu.org>" "Mavryk Dynamics <info@mavryk.io>"]
 maintainer: "Mavryk Dynamics <info@mavryk.io>"
 license: "ISC"
@@ -12,9 +12,11 @@ depends: [
   "ocaml" {>= "4.08.0"}
   "dune" {>= "2.4.0"}
   "ledgerwallet"
+  "uecc" { with-test }
   "hex" { with-test }
+  "secp256k1-internal" # { with-test } # commented because github actions does not install external deps for test only deps
   "alcotest-lwt" { with-test }
 ]
-synopsis: "Ledger wallet library for OCaml: SSH agent app"
-description: """
+synopsis: "Ledger wallet library for OCaml: Mavryk app"
+description:"""
 """

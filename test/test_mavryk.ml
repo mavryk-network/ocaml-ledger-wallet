@@ -1,4 +1,4 @@
-open Ledgerwallet_tezos
+open Ledgerwallet_mavryk
 open Lwt_result.Infix
 
 let return_unit = Lwt.return_ok ()
@@ -30,7 +30,7 @@ let test_git_commit () = with_connection (fun h -> get_git_commit h >|= ignore)
 
 let hard x = Int32.logor x 0x8000_0000l
 
-let path = [hard 44l; hard 1729l]
+let path = [hard 44l; hard 1969l]
 
 let curves = [Ed25519; Secp256k1; Secp256r1]
 
@@ -107,4 +107,4 @@ let basic =
     ("sign", `Quick, test_sign);
   ]
 
-let () = Lwt_main.run (Alcotest_lwt.run "ledgerwallet.tezos" [("basic", basic)])
+let () = Lwt_main.run (Alcotest_lwt.run "ledgerwallet.mavryk" [("basic", basic)])

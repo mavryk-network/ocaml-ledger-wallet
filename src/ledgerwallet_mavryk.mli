@@ -6,11 +6,11 @@
 open Ledgerwallet
 
 module Version : sig
-  type app_class = Tezos | TezBake
+  type app_class = Mavryk | MavBake
 
   val pp_app_class : Format.formatter -> app_class -> unit
 
-  type Status.t += Tezos_impossible_to_read_version
+  type Status.t += Mavryk_impossible_to_read_version
 
   type t = {app_class : app_class; major : int; minor : int; patch : int}
 

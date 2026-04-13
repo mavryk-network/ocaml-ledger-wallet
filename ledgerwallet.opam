@@ -1,12 +1,11 @@
 opam-version: "2.0"
 name: "ledgerwallet"
-authors: "Vincent Bernardoff <vb@luminar.eu.org>"
-maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
+authors: ["Vincent Bernardoff <vb@luminar.eu.org>" "Mavryk Dynamics <info@mavryk.io>"]
+maintainer: "Mavryk Dynamics <info@mavryk.io>"
 license: "ISC"
-homepage: "https://github.com/vbmithr/ocaml-ledger-wallet"
-bug-reports: "https://github.com/vbmithr/ocaml-ledger-wallet/issues"
-dev-repo: "git+https://github.com/vbmithr/ocaml-ledger-wallet"
-doc: "https://vbmithr.github.io/ocaml-ledger-wallet/doc"
+homepage: "https://github.com/mavryk-network/ocaml-ledger-wallet"
+bug-reports: "https://github.com/mavryk-network/ocaml-ledger-wallet/issues"
+dev-repo: "git+https://github.com/mavryk-network/ocaml-ledger-wallet"
 build:    [ "dune" "build"   "-p" name "-j" jobs ]
 # run-test: [ "dune" "runtest" "-p" name "-j" jobs ]
 depends: [

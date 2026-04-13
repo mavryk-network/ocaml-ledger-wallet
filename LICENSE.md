@@ -1,4 +1,5 @@
 Copyright (c) 2017 Vincent Bernardoff
+Copyright (c) 2018-2026 Mavryk Dynamics
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

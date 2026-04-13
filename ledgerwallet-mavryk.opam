@@ -14,7 +14,7 @@ depends: [
   "ledgerwallet"
   "uecc" { with-test }
   "hex" { with-test }
-  "secp256k1" {< "0.5.0"} # { with-test } # commented because github actions does not install external deps for test only deps
+  "secp256k1-internal" # { with-test } # commented because github actions does not install external deps for test only deps
   "alcotest-lwt" { with-test }
 ]
 synopsis: "Ledger wallet library for OCaml: Mavryk app"
